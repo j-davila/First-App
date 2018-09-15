@@ -1,2 +1,2 @@
 # First-App
-Prework app fo rCodePath
+Prework app for CodePath
