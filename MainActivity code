@@ -1,0 +1,75 @@
+package com.gmail.esosies.hellocodepath;
+
+import android.app.Activity;
+import android.content.res.ColorStateList;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+
+/* Program    : Hello Code Path
+ * Purpose	  : Build an App that allows users to: enter text, change the default text,
+ *              change color of the text, and change background color
+ * Programmer : José L Dávila Montalvo             */
+
+public class MainActivity extends Activity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ((TextView) findViewById(R.id.textView)).setTextColor(
+                        getResources().getColor(R.color.Red));
+            }
+        });
+
+        findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                findViewById(R.id.rootView).setBackgroundColor(
+                        getResources().getColor(R.color.darkOrange));
+                // Changes EditText to match background color
+                findViewById(R.id.editText).setBackgroundTintList(ColorStateList.valueOf(
+                        getResources().getColor(R.color.darkOrange)));
+            }
+        });
+
+        findViewById(R.id.button3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Record user input
+                String newText = ((EditText) findViewById(R.id.editText)).getText().toString();
+
+                if (TextUtils.isEmpty(newText)) {
+                    ((TextView) findViewById(R.id.textView)).setText("Hello from José!");
+                } else {
+                    ((TextView) findViewById(R.id.textView)).setText(newText);
+                }
+            }
+        });
+
+        findViewById(R.id.rootView).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Reset the text color to black
+                ((TextView) findViewById(R.id.textView)).setTextColor(
+                        getResources().getColor(R.color.Black));
+
+                // Reset the background color and Edit Text to darker grey
+                findViewById(R.id.rootView).setBackgroundColor(
+                        getResources().getColor(R.color.darker_gray));
+                findViewById(R.id.editText).setBackgroundTintList(ColorStateList.valueOf(
+                        getResources().getColor(R.color.darker_gray)));
+
+
+                // Reset the text to 'Hello from José!'
+                ((TextView) findViewById(R.id.textView)).setText("Hello from José!");
+            }
+        });
+    }
+}
