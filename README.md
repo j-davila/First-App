@@ -1,7 +1,7 @@
 ## Hello CodePath
 
 ### App Description
-Build an App that allows users to: enter text, change the default text, change color of the text, and change background color
+Build an App that allows users to: enter text, change the default text, change color of the text, and change the background color.
 
 ### App Walk-though
 <img src="https://i.imgur.com/RyfEf7S.gif" width=200><br>
